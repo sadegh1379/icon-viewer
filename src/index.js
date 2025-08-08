@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import fs from "fs/promises";
 import path from "path";
 import recursive from "recursive-readdir";
@@ -17,7 +19,7 @@ const processIconFiles = async () => {
     const content = await fs.readFile(path.resolve("./", file), {
       encoding: "utf8",
     });
-    const name = file.split("/").at(-1);
+    const name = path.parse(file).name;
     iconPath.push({ fullPath: file, name, content });
   }
 };
@@ -25,7 +27,7 @@ const processIconFiles = async () => {
 processIconFiles();
 const app = express();
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "./views"));
+app.set("views", path.join(__dirname, "./viewer"));
 
 app.get("/", (req, res) => {
   res.render("index", { icons: iconPath });

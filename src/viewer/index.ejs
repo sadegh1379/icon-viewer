@@ -57,7 +57,7 @@
   <body>
     <div class="container">
       <% icons.forEach((icon)=>{%>
-        <div class="svg-item" title="<%= icon.fullPath %>">
+        <div class="svg-item" data-name="<%= icon.name %>">
           <div class="svg"><%-icon.content%></div>
           <span class="title"><%=icon.name%></span>
         </div>
@@ -67,7 +67,7 @@
     <script>
       document.querySelectorAll('.svg-item').forEach((item)=>{
         item.addEventListener("click",()=>{
-          navigator.clipboard.writeText(item.title)
+            navigator.clipboard.writeText(item.dataset.name)
         })
       })
     </script>
