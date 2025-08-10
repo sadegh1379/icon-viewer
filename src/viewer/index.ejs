@@ -11,7 +11,6 @@
       }
       body {
         background-color: #fff;
-        padding: 24px;
       }
       .container{
         display: grid;
@@ -19,6 +18,8 @@
         max-width: 1400px;
         margin:0 auto;
         gap: 24px;
+        padding: 24px;
+        margin-top: 30px;
       }
       .svg-item{
         display: flex;
@@ -36,6 +37,8 @@
       }
       .svg-item .title{
         font-size: 12px;
+        font-weight: bold;
+        color: gray;
       }
       .svg-item .svg{
         display: flex;
@@ -51,10 +54,21 @@
         width: 50px;
         height: 50px;
       }
+
+      .header{
+        padding: 25px;
+        padding-bottom: 25px;
+        text-align: center;
+        color: white;
+        background-color: #415E72;
+      }
     </style>
   </head>
 
   <body>
+    <div class="header">
+      <h3>Icons</h3>
+    </div>
     <div class="container">
       <% icons.forEach((icon)=>{%>
         <div class="svg-item" data-name="<%= icon.name %>">
